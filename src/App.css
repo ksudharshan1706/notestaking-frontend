@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  background: rgb(55,57,88);
+  background: linear-gradient(180deg, rgba(55,57,88,1) 0%, rgba(69,211,252,1) 100%);          
+
 }
 
 .App-logo {
@@ -35,4 +38,39 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.searchbar{
+  width: 197.596px;
+  height: 32.933px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  
+}
+
+.searchcontent{
+  color: var(--Light-grey, #B0B0B0);
+font-family: Lato;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+outline: none;
+width: 80%;
+}
+.searchbar2{
+  width: 197.596px;
+  height: 32.933px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  
 }

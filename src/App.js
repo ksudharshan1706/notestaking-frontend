@@ -1,24 +1,60 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import NotesList from "./componants/NotesList";
+import AddNote from "./componants/AddNote";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Signin from "./componants/login/Signin";
+import { useSelector } from "react-redux";
+import EditNote from "./componants/EditNote";
+import { createContext, useState } from "react";
+
+//create a context
+
+export const context = createContext();
 
 function App() {
+  const { currentUser } = useSelector((state) => state.user);
+  const [toggle, setToggle] = useState(false);
+  const [notes, setNotes] = useState([]);
+  const [card, setCard] = useState({});
+  const [color, setColor] = useState("");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <context.Provider
+        value={{
+          toggle,
+          setToggle,
+          card,
+          setCard,
+          notes,
+          setNotes,
+          color,
+          setColor,
+        }}
+      >
+        <div className="App">
+          <Routes>
+            <Route path="/">
+              <Route
+                index
+                element={
+                  currentUser ? (
+                    <div className="container">
+                      <NotesList />
+                    </div>
+                  ) : (
+                    <Signin />
+                  )
+                }
+              />
+            </Route>
+            <Route path="/editNote/:id" element={<EditNote />} />
+          </Routes>
+
+          {/* <AddNote /> */}
+        </div>
+      </context.Provider>
+    </BrowserRouter>
   );
 }
 

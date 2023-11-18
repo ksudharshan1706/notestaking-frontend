@@ -1,0 +1,253 @@
+.signin{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F8FAFF;
+
+}
+.signinleft{
+    background-image: url("../../assets/Leftside.png"); 
+    width: 50%;
+    height: 100vh;
+    margin-left: 0;
+    background-size: cover;
+    background-position: center;
+    object-fit: cover;
+    overflow: "auto";
+    /* border: 2px solid; */
+}
+.signinleftdata{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+}
+    .divitem{
+        width: 100%;
+        /* border: 2px solid; */
+        height: 100px;
+    }
+.leftdata1{
+    color: #FFF;
+font-family: Poppins;
+font-size: 24px;
+font-style: normal;
+font-weight: 700;
+line-height: 122.687%; /* 29.445px */
+letter-spacing: 0.36px;
+/* text-align: center; */
+text-align: left;
+padding: 50px 0px 0px 100px;
+}
+.leftdata2{
+    color: #FFF;
+font-family: Montserrat;
+font-size: 60px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+text-align: center;
+/* position: absolute; */
+margin: -100px 0px 0px -200px;
+}
+.leftdata3{
+flex-shrink: 0;
+width: 40%;
+display: flex;
+justify-content: space-evenly;
+align-items: center;
+/* margin-bottom: 50px;
+margin-left: -145px; */
+margin: 0px 0px 50px -200px;
+
+}
+
+.logincard{
+    /* border: 2px solid; */
+    width: 50%;
+    height: 100vh;
+    margin: 0px;
+    display: flex;
+    justify-content: space-evenly;
+    text-align:left;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.signinheading
+{
+    /* width: 143.806px; */
+    width: 43%;
+height: 48.301px;
+flex-shrink: 0;
+color: #000;
+font-family: Montserrat;
+font-size: 36px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+margin-left: -150px;
+}
+
+.signintoccount
+{
+    width: 43%;
+height: 20.857px;
+flex-shrink: 0;
+color: #000;
+font-family: Lato;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+margin-left: -150px;
+}
+
+.loginform{
+    width: 90%;
+    max-width: 500px;
+    height: 347.988px;
+    flex-shrink: 0;
+    border-radius: 10px;
+background: #FFF;
+display: flex;
+justify-content: space-evenly;
+flex-direction:column;
+/* border: 2px solid; */
+/* margin-left: 100px; */
+}
+
+.formlabel{
+    padding-bottom: 0px;
+    margin-left: 40px;
+    width: 105.384px;
+height: 20.857px;
+flex-shrink: 0;
+color: #000;
+font-family: Lato;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+
+.inputfield{
+    align-items: center;
+    width: 80%;
+height: 43.91px;
+flex-shrink: 0;
+border-radius: 10px;
+background: var(--Background, #F5F5F5);
+border: none;
+margin-left: 40px;
+
+}
+
+.inputfield:focus{
+    border: 2px solid
+}
+
+
+.forgotpassword{
+    margin-left: 40px;
+}
+
+.loginbtn{
+    width: 80%;
+flex-shrink: 0;
+color: #FFF;
+text-align: center;
+font-family: Montserrat;
+font-size: 16px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+/* width: 356.77px; */
+height: 43.91px;
+flex-shrink: 0;
+border-radius: 10px;
+background: #4285F4;
+margin-left: 40px;
+}
+.autologinContainer{
+    width: 65%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    /* border: 2px solid; */
+}
+.autologin{
+    width: 48%;
+    min-width: 100px;
+    height: auto;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.autologindesc{
+    color: var(--Secondary-Text, #858585);
+text-align: center;
+font-family: Montserrat;
+font-size: 12px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+.Navbar{
+display: none;
+/* margin-bottom: 100px; */
+/* margin: -100px 0px 0px -200px; */
+}
+
+@media only screen and (max-width: 1000px) {
+    .signinleft{
+        display: none;
+    }
+    .logincard{
+        width: 100%;
+    }
+    .Navbar{
+        /* display: block; */
+        color: #FFF;
+        width: 100%;
+        height: 100px;
+        margin: 0px !important;
+        font-family: Montserrat;
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        text-align: center ;
+        position: relative;
+        top: -20px;
+        background-color:#286DE0;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .autologindesc{
+
+    font-size: 10px;
+    /* font-style: normal; */
+    font-weight: 100;
+    /* line-height: normal; */
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .signintoccount{
+        display: none;
+    }
+
+}
