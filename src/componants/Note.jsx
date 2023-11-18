@@ -1,4 +1,3 @@
-import { MdDeleteForever } from "react-icons/md";
 import { format } from "timeago.js";
 import axios from "axios";
 
