@@ -130,7 +130,7 @@ const NotesList = () => {
       window.removeEventListener("resize", setDimension);
     };
   }, [screenSize]);
-  console.log(screenSize.dynamicWidth);
+  // console.log(screenSize.dynamicWidth);
   return (
     <>
       {screenSize.dynamicWidth > 630 ? <BasicSpeedDial /> : null}

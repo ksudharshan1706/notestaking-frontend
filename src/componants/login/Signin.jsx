@@ -43,8 +43,16 @@ const Signin = () => {
             flexDirection: "column",
           }}
         >
-          <div className="signinheading">Sign In</div>
-          <div className="signintoccount">Sign in to your account</div>
+          {signintoggle ? (
+            <div className="signinheading">Sign In</div>
+          ) : (
+            <div className="signinheading">Sign Up</div>
+          )}
+          {signintoggle ? (
+            <div className="signintoccount">Sign in to your account</div>
+          ) : (
+            <div className="signintoccount">Sign Up to your account</div>
+          )}
           <div className="autologinContainer"></div>
           {signintoggle ? <Loginform /> : <Register />}
           <div className="" onClick={() => setSignintoggle(!signintoggle)}>
