@@ -55,10 +55,15 @@ const EditNote = () => {
           <textarea
             rows="7"
             cols="40"
+            // style={{ marginLeft: "90%" }}
             placeholder="Edit the note..."
             defaultValue={card.desc}
             onChange={(e) => setEditdesc(e.target.value)}
-            style={{ backgroundColor: "transparent" }}
+            className="editpost"
+            style={{
+              backgroundColor: "transparent",
+              // marginLeft: "30%",
+            }}
           ></textarea>
           <button
             style={{

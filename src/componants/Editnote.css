@@ -24,3 +24,8 @@
 	/* padding: 1rem; */
 }
 
+@media only screen and (max-width: 400px) {
+    .editpost{
+        margin-left: 30%;
+    }
+}
