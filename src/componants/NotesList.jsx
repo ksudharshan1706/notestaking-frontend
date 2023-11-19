@@ -28,10 +28,13 @@ const NotesList = () => {
   const [noteID, setNoteID] = useState(0);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  var render = 0;
 
   useEffect(() => {
+    // console.log("useeffect", notes);
     const addNote = async () => {
       const note = await axios.get(`auth/getNotes/${currentUser._id}`);
+      // console.log(note);
       setNotes(note.data);
       dispatch(profilefetchSuccess(note.data));
     };
@@ -76,7 +79,7 @@ const NotesList = () => {
     const deleteNote = async () => {
       const arr = notes.filter((data) => {
         // console.log(id, data.NoteId, data._id);
-        if (data.NoteId != id) {
+        if (data._id != id) {
           return data;
         }
       });
@@ -89,11 +92,18 @@ const NotesList = () => {
 
   //serach notes
   useEffect(() => {
-    const content = currentCard;
-    // console.log(content);
+    var content = [];
+    if (currentCard.length > 0 && currentCard.length > notes.length) {
+      content = currentCard;
+    } else {
+      content = notes;
+    }
+
+    console.log(content);
     if (search != "" && content.length > 0) {
       const searchNotes = content.filter((data) => {
-        if (data.desc.includes(search)) {
+        // console.log(data);
+        if (data && data.desc.includes(search)) {
           return data;
         }
       });
@@ -103,6 +113,19 @@ const NotesList = () => {
       setNotes(content);
     }
   }, [search]);
+
+  // useEffect(() => {
+  //   if (currentCard.length != notes.length) {
+  //     console.log("current cards length != notes length", currentCard, notes);
+  //     const addNote = async () => {
+  //       const note = await axios.get(`auth/getNotes/${currentUser._id}`);
+  //       setNotes(note.data);
+  //       dispatch(profilefetchSuccess(note.data));
+  //     };
+  //     addNote();
+  //     console.log(notes);
+  //   }
+  // }, [render]);
 
   //Logout
   const Logout = () => {
@@ -131,6 +154,7 @@ const NotesList = () => {
     };
   }, [screenSize]);
   // console.log(screenSize.dynamicWidth);
+
   return (
     <>
       {screenSize.dynamicWidth > 630 ? <BasicSpeedDial /> : null}
@@ -186,8 +210,8 @@ const NotesList = () => {
                     style={{ cursor: "pointer" }}
                     color="error"
                     onClick={() => {
-                      handleDeleteNote(note.NoteId);
-                      // handleDeleteNote(note._id);
+                      // handleDeleteNote(note.NoteId);
+                      handleDeleteNote(note._id);
                     }}
                   >
                     delete

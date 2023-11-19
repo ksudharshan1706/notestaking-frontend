@@ -8,8 +8,8 @@ import { Provider } from "react-redux";
 import { persistor, store } from "./componants/redux/store";
 import { PersistGate } from "redux-persist/integration/react";
 import axios from "axios";
-axios.defaults.baseURL = "https://notetakingbackend.onrender.com/api/";
-// axios.defaults.baseURL = "http://localhost:8800/api/";
+// axios.defaults.baseURL = "https://notetakingbackend.onrender.com/api/";
+axios.defaults.baseURL = "http://localhost:8800/api/";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>

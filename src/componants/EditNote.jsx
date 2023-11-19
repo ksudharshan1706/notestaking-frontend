@@ -22,10 +22,11 @@ const EditNote = () => {
         id: card._id,
         desc: editdesc,
         NoteId: card.NoteId,
+        color: card.color,
       };
       const arr = notes.filter((data) => {
         console.log(data, editNote);
-        if (data.NoteId != editNote.NoteId) {
+        if (data._id != editNote.id) {
           return data;
         }
       });
@@ -39,11 +40,11 @@ const EditNote = () => {
     fetchData();
     setToggle(!toggle);
   };
-
+  console.log(notes);
   return (
     <div>
       <div className="overlay">
-        <div className="editnote">
+        <div className="editnote" style={{ backgroundColor: card.color }}>
           <div style={{ marginLeft: "90%" }}>
             <CloseIcon
               src={close}
