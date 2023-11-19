@@ -22,7 +22,6 @@ const EditNote = () => {
         color: card.color,
       };
       const arr = notes.filter((data) => {
-        console.log(data, editNote);
         if (data._id != editNote.id) {
           return data;
         }
