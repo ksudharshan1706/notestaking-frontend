@@ -66,6 +66,7 @@ const NotesList = () => {
           NoteId: noteID,
         });
         dispatch(profilefetchSuccess([notes]));
+        window.location.reload();
       } catch (error) {
         console.log(error);
       }
