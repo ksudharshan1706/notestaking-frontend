@@ -57,6 +57,7 @@ const EditNote = () => {
             rows="7"
             cols="40"
             placeholder="Edit the note..."
+            defaultValue={card.desc}
             onChange={(e) => setEditdesc(e.target.value)}
             style={{ backgroundColor: "transparent" }}
           ></textarea>
