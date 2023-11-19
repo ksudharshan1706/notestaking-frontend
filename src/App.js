@@ -9,7 +9,6 @@ import EditNote from "./componants/EditNote";
 import { createContext, useState } from "react";
 
 //create a context
-
 export const context = createContext();
 
 function App() {
@@ -50,8 +49,6 @@ function App() {
             </Route>
             <Route path="/editNote/:id" element={<EditNote />} />
           </Routes>
-
-          {/* <AddNote /> */}
         </div>
       </context.Provider>
     </BrowserRouter>

@@ -1,26 +1,12 @@
 import React, { useState } from "react";
 import "./Sign.css";
-// import {
-//   apple,
-//   discord,
-//   github,
-//   google,
-//   linkedin,
-//   loginleft,
-//   twitter,
-// } from "../../assets";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
 
-import axios from "axios";
 import Loginform from "./Loginform";
 import Register from "./Register";
 function ColorfulText({ children }) {
   return <a style={{ color: "#346BD4", cursor: "pointer" }}>{children}</a>;
 }
 const Signin = () => {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
   const [signintoggle, setSignintoggle] = useState(true);
   console.log(signintoggle);
   return (

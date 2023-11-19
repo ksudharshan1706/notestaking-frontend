@@ -1,8 +1,6 @@
 import { format } from "timeago.js";
-import axios from "axios";
 
 const Note = ({ id, text, date, handleDeleteNote, handleEditNote, color }) => {
-  // console.log(color);
   return (
     <div className="note" style={{ backgroundColor: color }}>
       <span>{text}</span>

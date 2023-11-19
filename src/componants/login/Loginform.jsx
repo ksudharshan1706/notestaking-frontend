@@ -18,7 +18,6 @@ const Loginform = () => {
   const [password, setPassword] = useState("");
   const Login = () => {
     try {
-      console.log(email, password);
       const userinfo = axios
         .post("auth/signin", {
           email,
@@ -34,15 +33,11 @@ const Loginform = () => {
         })
         .catch((error) => {
           //create a toast and display user not found or not registered
-          console.log(error);
           toast.error(`${error.response.data.message}`, {
             position: toast.POSITION.TOP_RIGHT,
           });
         });
-
-      console.log("userinfo", userinfo.data);
     } catch (error) {
-      console.log(error);
       toast.error(`${error.response.data.message}`, {
         position: toast.POSITION.TOP_RIGHT,
       });

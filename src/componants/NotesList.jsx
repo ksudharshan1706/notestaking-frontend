@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useMemo, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Note from "./Note";
 import AddNote from "./AddNote";
 import axios from "axios";
@@ -10,12 +10,10 @@ import { useNavigate } from "react-router-dom";
 import { profilefetchSuccess, profilefetchcclear } from "./redux/cardSlice";
 import { context } from "../App";
 import "../index.css";
-import { search } from "../assets";
 import SearchIcon from "@mui/icons-material/Search";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { logOut } from "./redux/userSlice";
 import BasicSpeedDial from "./BasicSpeedDial";
-import BasicSpeedDial2 from "./BasicSpeedDial2";
 
 const NotesList = () => {
   const { currentUser } = useSelector((state) => state.user);
@@ -31,10 +29,8 @@ const NotesList = () => {
   var render = 0;
 
   useEffect(() => {
-    // console.log("useeffect", notes);
     const addNote = async () => {
       const note = await axios.get(`auth/getNotes/${currentUser._id}`);
-      // console.log(note);
       setNotes(note.data);
       dispatch(profilefetchSuccess(note.data));
     };
@@ -51,7 +47,6 @@ const NotesList = () => {
       color: color,
       NoteId: noteID,
     };
-    // console.log(newNote);
     if (notes.length > 0) {
       setNotes([...notes, newNote]);
     } else {
@@ -76,10 +71,8 @@ const NotesList = () => {
 
   //deleteNote
   const handleDeleteNote = (id) => {
-    // console.log(id);
     const deleteNote = async () => {
       const arr = notes.filter((data) => {
-        // console.log(id, data.NoteId, data._id);
         if (data._id != id) {
           return data;
         }
@@ -93,40 +86,18 @@ const NotesList = () => {
 
   //serach notes
   useEffect(() => {
-    var content = [];
-    if (currentCard.length > 0 && currentCard.length > notes.length) {
-      content = currentCard;
-    } else {
-      content = notes;
-    }
-
-    console.log(content);
+    const content = currentCard;
     if (search != "" && content.length > 0) {
       const searchNotes = content.filter((data) => {
-        // console.log(data);
         if (data && data.desc.includes(search)) {
           return data;
         }
       });
-      // console.log(searchNotes);
       setNotes(searchNotes);
     } else {
       setNotes(content);
     }
   }, [search]);
-
-  // useEffect(() => {
-  //   if (currentCard.length != notes.length) {
-  //     console.log("current cards length != notes length", currentCard, notes);
-  //     const addNote = async () => {
-  //       const note = await axios.get(`auth/getNotes/${currentUser._id}`);
-  //       setNotes(note.data);
-  //       dispatch(profilefetchSuccess(note.data));
-  //     };
-  //     addNote();
-  //     console.log(notes);
-  //   }
-  // }, [render]);
 
   //Logout
   const Logout = () => {
@@ -134,7 +105,6 @@ const NotesList = () => {
     dispatch(logOut());
     navigate("/");
   };
-  // console.log(notes);
 
   //screen resolution
   const [screenSize, getDimension] = useState({
@@ -183,7 +153,6 @@ const NotesList = () => {
           <SearchIcon />
         </div>
         <div className="userdetails">
-          {/* {screenSize.dynamicWidth < 630 ? <BasicSpeedDial2 /> : null} */}
           <div className="username">{currentUser.name}</div>
           <AccountCircleIcon
             style={{ color: "white", cursor: "pointer" }}
@@ -202,7 +171,6 @@ const NotesList = () => {
           ? notes.map((note) => (
               <Note
                 id={note.NoteId}
-                // id={note._id}
                 text={note.desc}
                 date={note.createdAt}
                 color={note.color}
@@ -211,7 +179,6 @@ const NotesList = () => {
                     style={{ cursor: "pointer" }}
                     color="error"
                     onClick={() => {
-                      // handleDeleteNote(note.NoteId);
                       handleDeleteNote(note._id);
                     }}
                   >
@@ -224,14 +191,12 @@ const NotesList = () => {
                     onClick={() => {
                       setToggle(!toggle);
                       setCard(note);
-                      // console.log(card);
                     }}
                   />
                 }
               />
             ))
           : null}
-        {/* {screenSize.dynamicWidth < 630 ? <BasicSpeedDial2 /> : null} */}
         {toggle ? <EditNote /> : null}
       </div>
     </>

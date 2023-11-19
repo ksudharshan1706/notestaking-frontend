@@ -1,15 +1,12 @@
 import React, { useContext, useState } from "react";
 import "./Editnote.css";
 import "../index.css";
-import { useDispatch, useSelector } from "react-redux";
 import { close } from "../assets/index";
-import { profilefetchSuccess, profilefetchcclear } from "./redux/cardSlice";
 import { context } from "../App";
 import axios from "axios";
 import CloseIcon from "@mui/icons-material/Close";
 
 const EditNote = () => {
-  // const { currentCard } = useSelector((state) => state.card);
   const { toggle, setToggle, card, notes, setNotes } = useContext(context);
   const [editdesc, setEditdesc] = useState("");
   const cardClose = () => {

@@ -202,8 +202,6 @@ line-height: normal;
 }
 .Navbar{
 display: none;
-/* margin-bottom: 100px; */
-/* margin: -100px 0px 0px -200px; */
 }
 
 @media only screen and (max-width: 1000px) {
@@ -239,9 +237,7 @@ display: none;
     .autologindesc{
 
     font-size: 10px;
-    /* font-style: normal; */
     font-weight: 100;
-    /* line-height: normal; */
     }
 }
 
